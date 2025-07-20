@@ -7,7 +7,10 @@ const gameContainer = document.getElementById('gameContainer');
 const missionObjectiveElement = document.getElementById('missionObjective');
 const missionButtons = document.querySelectorAll('.missionButton');
 const gameOverModalElement = document.getElementById('gameOverModal');
-const gameOverModal = new bootstrap.Modal(gameOverModalElement);
+const gameOverModal = new bootstrap.Modal(gameOverModalElement, {
+    keyboard: false,
+    backdrop: 'static'
+});
 const gameOverModalLabel = document.getElementById('gameOverModalLabel');
 
 const upBtn = document.getElementById('upBtn');
@@ -156,13 +159,6 @@ function handleDirectionChange(newDirection) {
 }
 
 document.addEventListener('keydown', e => {
-    if (gameOver && e.key === 'Enter') {
-        gameOverModal.hide();
-        gameContainer.style.display = 'none';
-        missionSelection.style.display = 'block';
-        return;
-    }
-
     switch (e.key) {
         case 'ArrowUp':
             handleDirectionChange('up');
@@ -192,6 +188,14 @@ upBtn.addEventListener('click', () => handleDirectionChange('up'));
 downBtn.addEventListener('click', () => handleDirectionChange('down'));
 leftBtn.addEventListener('click', () => handleDirectionChange('left'));
 rightBtn.addEventListener('click', () => handleDirectionChange('right'));
+
+gameOverModalElement.addEventListener('click', () => {
+    if (gameOver) {
+        gameOverModal.hide();
+        gameContainer.style.display = 'none';
+        missionSelection.style.display = 'block';
+    }
+});
 
 function resizeCanvas() {
     const size = Math.min(window.innerWidth * 0.9, window.innerHeight * 0.6);
