@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background: blanchedalmond;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.btn-primary {
+    background-color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+.btn-primary:hover {
+    background-color: #ff4757;
+    border-color: #ff4757;
+}
+
+.btn-secondary {
+    background-color: #48dbfb;
+    border-color: #48dbfb;
+}
+
+.btn-secondary:hover {
+    background-color: #0abde3;
+    border-color: #0abde3;
+}
+
+canvas {
+    background-color: #f8f9fa;
+    border: 5px solid #333;
+}
+
+#trophy {
+    animation: pop 0.5s ease-in-out;
+    margin-bottom: 1rem;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0);
+    }
+    80% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#touchControls {
+    display: none; /* Hidden by default */
+}
+
+.d-pad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.d-pad-up { grid-area: 1 / 2 / 2 / 3; }
+.d-pad-left { grid-area: 2 / 1 / 3 / 2; }
+.d-pad-right { grid-area: 2 / 3 / 3 / 4; }
+.d-pad-down { grid-area: 3 / 2 / 4 / 3; }
+
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    #gameCanvas {
+        width: 90vw;
+        height: 90vw;
+    }
+
+    #touchControls {
+        display: block;
+    }
+}

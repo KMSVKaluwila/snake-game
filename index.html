@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+    <div class="container text-center mt-5">
+        <h1 class="display-4">Snake Game</h1>
+
+        <div id="missionSelection">
+            <h2 class="my-4">Choose a Mission</h2>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-primary missionButton" data-type="score" data-goal="10">Reach 10 points</button>
+                <button class="btn btn-primary missionButton" data-type="length" data-goal="15">Grow to 15 segments</button>
+                <button class="btn btn-secondary missionButton" data-type="endless">Endless Mode</button>
+            </div>
+        </div>
+
+        <div id="gameContainer" style="display:none;">
+            <div class="row justify-content-center my-3">
+                <div class="col-auto">
+                    <div id="score" class="h4">Score: 0</div>
+                </div>
+                <div class="col-auto">
+                    <div id="missionObjective" class="h5 text-muted"></div>
+                </div>
+            </div>
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <div id="touchControls" class="mt-3">
+                <div class="d-pad">
+                    <button id="upBtn" class="btn btn-info d-pad-up">▲</button>
+                    <button id="leftBtn" class="btn btn-info d-pad-left">◀</button>
+                    <button id="rightBtn" class="btn btn-info d-pad-right">▶</button>
+                    <button id="downBtn" class="btn btn-info d-pad-down">▼</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="gameOverModal" tabindex="-1" aria-labelledby="gameOverModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content text-center">
+                    <div class="modal-header">
+                        <h5 class="modal-title w-100" id="gameOverModalLabel">Game Over!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="trophy" class="display-1" style="display:none;">🏆</div>
+                        <p>Press Enter to play again</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
