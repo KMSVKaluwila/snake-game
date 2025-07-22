@@ -135,7 +135,7 @@ function startGame(mission) {
 }
 
 function restartGame() {
-    gameSpeed = 65; // Set a constant speed
+    gameSpeed = 70; // Set a constant speed
     gameOver = false;
     snake = [{ x: Math.floor((canvas.width / gridSize) / 2), y: Math.floor((canvas.height / gridSize) / 2) }];
     direction = 'right';
