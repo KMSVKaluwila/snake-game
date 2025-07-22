@@ -47,6 +47,25 @@ canvas {
     }
 }
 
+.collision-effect {
+    animation: redFlash 0.3s ease;
+}
+
+@keyframes redFlash {
+    0% { background-color: inherit !important; }
+    50% { background-color: #ff0000aa !important; }
+    100% { background-color: inherit !important; }
+}
+
+#restartBtn {
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#restartBtn:active {
+    transform: scale(0.95);
+    background-color: #28a745 !important;
+}
+
 #touchControls {
     display: none; /* Hidden by default */
 }
